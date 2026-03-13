@@ -226,27 +226,18 @@ function abrirModal(prod = null) {
 }
 
 function cerrarModal() {
- const modal = document.getElementById("modal");
-
   modal.classList.add("oculto");
   modal.setAttribute("aria-hidden", "true");
 
-  // limpiar campos
-  document.getElementById("nombre").value = "";
-  document.getElementById("precio").value = "";
-  document.getElementById("categoria").value = "";
-  document.getElementById("imagen").value = "";
-  document.getElementById("preview").src = "";
-  document.getElementById("destacado").checked = false;
-  document.getElementById("oferta").checked = false;
-  };
+  document.body.style.overflow = "auto";
 
-  document.body.style.overflow = "";
   limpiarModalFields();
-  // remover input manual si quedó
+
   const manual = document.getElementById("categoriaManual");
   if (manual) manual.remove();
+
   editIndex = null;
+}
 
 
 function limpiarModalFields() {
@@ -560,3 +551,4 @@ actualizarStats();
 /* Exponer para debugging si hace falta */
 window._productos = productos;
 window._categorias = categorias;
+
